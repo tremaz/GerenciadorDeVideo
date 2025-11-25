@@ -22,23 +22,21 @@ const database = new DatabaseMemory()
 
 server.post("/videos", (request, reply) => {
 
-    const body = request.body
-
-    console.log(body)
+    const { title, description, duration} = request.body
      
     database.create({
-        title: 'video01',
-        descroto: 'slamano',
-        duração: 290,
+        title,
+        description,
+        duration,
     })
-
-    console.log(database.list())
 
     return reply.status(201).send()
 })
 
-server.get("/videos", () => {
-    return 'Aqui teu videor'
+server.get("/videos", (request, reply) => {
+    const videos = database.list()
+
+    return videos
 })
 
 server.put("/videos/id", () => {

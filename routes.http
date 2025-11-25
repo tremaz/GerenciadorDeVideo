@@ -1,1 +1,18 @@
 POST http://localhost:3333/videos
+Content-Type: application/json
+
+{
+    "title" :"video 1"
+
+}
+
+###
+GET http://localhost:3333/videos
+Content-Type: application/json
+
+{
+    "title" :"video 1"
+
+}
+
+
